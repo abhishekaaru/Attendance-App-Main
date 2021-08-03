@@ -22,6 +22,12 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_attendenceFragment)
         }
 
+        val add_student_button = binding.findViewById<Button>(R.id.add_student_button)
+
+        add_student_button.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_studentFragment)
+        }
+
         return binding
 
     }

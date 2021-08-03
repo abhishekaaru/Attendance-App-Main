@@ -12,11 +12,21 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_attendenceFragment"
-            app:destination="@id/attendenceFragment" />
+            app:destination="@id/attendenceFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_studentFragment"
+            app:destination="@id/studentFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/attendenceFragment"
         android:name="com.example.attendenceapp.AttendenceFragment"
         android:label="fragment_attendence"
         tools:layout="@layout/fragment_attendence" />
+    <fragment
+        android:id="@+id/studentFragment"
+        android:name="com.example.attendenceapp.StudentFragment"
+        android:label="fragment_student"
+        tools:layout="@layout/fragment_student" />
 </navigation>
