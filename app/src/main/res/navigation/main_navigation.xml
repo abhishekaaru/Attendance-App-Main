@@ -21,12 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/attendenceFragment"
-        android:name="com.example.attendenceapp.AttendenceFragment"
+        android:name="com.example.attendenceapp.studentattendence.AttendenceFragment"
         android:label="fragment_attendence"
         tools:layout="@layout/fragment_attendence" />
     <fragment
         android:id="@+id/studentFragment"
-        android:name="com.example.attendenceapp.StudentFragment"
+        android:name="com.example.attendenceapp.studentlist.StudentFragment"
         android:label="fragment_student"
         tools:layout="@layout/fragment_student" >
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/addStudents"
-        android:name="com.example.attendenceapp.AddStudents"
+        android:name="com.example.attendenceapp.addstudent.AddStudents"
         android:label="Add New Student"
         tools:layout="@layout/fragment_add_students" />
 </navigation>
