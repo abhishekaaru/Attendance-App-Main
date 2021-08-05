@@ -1,4 +1,4 @@
-package com.example.attendenceapp.studentlist
+package com.example.attendenceapp
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.attendenceapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 

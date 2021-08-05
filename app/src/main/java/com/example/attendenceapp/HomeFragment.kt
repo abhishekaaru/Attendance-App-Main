@@ -7,28 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.attendenceapp.databinding.FragmentHomeBinding
+import com.example.attendenceapp.databinding.FragmentStudentBinding
 
 class HomeFragment : Fragment() {
 
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val binding = inflater.inflate(R.layout.fragment_home,container,false)
 
-        val attendence_button = binding.findViewById<Button>(R.id.attendence_button)
+        _binding = FragmentHomeBinding.inflate(inflater,container,false)
 
-        attendence_button.setOnClickListener {
+        binding.attendenceButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_attendenceFragment)
         }
 
-        val add_student_button = binding.findViewById<Button>(R.id.add_student_button)
-
-        add_student_button.setOnClickListener {
+        binding.addStudentButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_studentFragment)
         }
 
-        return binding
+        return binding.root
 
     }
 
