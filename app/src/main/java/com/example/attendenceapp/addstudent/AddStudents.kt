@@ -62,6 +62,7 @@ class AddStudents : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val model = ViewModelProvider(requireActivity()).get(AddStudentViewModel::)
+        //kharabi aa gyi hai
+//        val model = ViewModelProvider(requireActivity()).get(AddStudentViewModel::)
     }
 }
