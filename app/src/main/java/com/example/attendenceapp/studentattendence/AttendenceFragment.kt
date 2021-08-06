@@ -1,4 +1,4 @@
-package com.example.attendenceapp
+package com.example.attendenceapp.studentattendence
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
