@@ -1,12 +1,11 @@
-package com.example.attendenceapp
+package com.example.attendenceapp.addstudent
 
 import android.os.Bundle
 import android.view.*
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
+import com.example.attendenceapp.R
 import com.example.attendenceapp.databinding.FragmentAddStudentsBinding
-import com.example.attendenceapp.databinding.FragmentStudentBinding
 
 
 class AddStudents : Fragment() {
