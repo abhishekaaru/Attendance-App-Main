@@ -5,13 +5,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "student_record")
-class Students(_studentName:String,_rollNo:Int,_age:Int,_gender:Boolean) {
+class Students(_studentName:String,_rollNo:Int,_age:Int,_gender:String) {
 
     @PrimaryKey(autoGenerate = true)
     val id:Int = 0
 
     @ColumnInfo(name = "StudentName")
-    val studentName:String = _studentName
+    var studentName:String = _studentName
 
     @ColumnInfo(name = "RollNo")
     val rollNo:Int = _rollNo
@@ -20,6 +20,6 @@ class Students(_studentName:String,_rollNo:Int,_age:Int,_gender:Boolean) {
     val age:Int = _age
 
     @ColumnInfo(name = "Gender")
-    val gender:Boolean = _gender
+    val gender:String = _gender
 
 }

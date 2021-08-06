@@ -26,7 +26,4 @@ class StudentFragment : Fragment() {
         return binding.root
     }
 
-
-
-
 }
