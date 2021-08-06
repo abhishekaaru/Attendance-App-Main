@@ -5,7 +5,6 @@ import android.util.Log
 import android.widget.*
 import androidx.fragment.app.activityViewModels
 import com.example.attendenceapp.studentdatabase.Students
-import com.google.android.material.textfield.TextInputLayout
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.attendenceapp.R
@@ -14,6 +13,8 @@ import com.example.attendenceapp.databinding.FragmentAddStudentsBinding
 
 class AddStudents : Fragment() {
 
+    private val addStudentViewModel:AddStudentViewModel by activityViewModels()
+
     private var _binding: FragmentAddStudentsBinding? = null
     private val binding get() = _binding!!
 
@@ -21,40 +22,18 @@ class AddStudents : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentAddStudentsBinding.inflate(inflater, container, false)
 
+        // Dropdown List
         val items = listOf("Male", "Female", "Others")
         val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, items)
         binding.autoCompleteTextView.setAdapter(adapter)
 
-        return binding.root
-    }
-
-
-class AddStudents : Fragment() {
-
-
-    private val addStudentViewModel:AddStudentViewModel by activityViewModels()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val binding = inflater.inflate(R.layout.fragment_add_students, container, false)
-
-
-
-        //dropdown list
-        val items = listOf("Male", "Female", "Others")
-        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, items)
-        binding.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setAdapter(adapter)
-
 
         //data adding
-        val save_btn = binding.findViewById<Button>(R.id.save_btn)
-        val student_name = binding.findViewById<EditText>(R.id.student_name)
-        val Roll_no = binding.findViewById<EditText>(R.id.Roll_no)
-        val Age = binding.findViewById<EditText>(R.id.Age)
-        val gender_lable = binding.findViewById<TextInputLayout>(R.id.gender_lable)
+        val save_btn = binding.saveBtn
+        val student_name = binding.studentName
+        val Roll_no = binding.RollNo
+        val Age = binding.Age
+        val gender_lable = binding.genderLable
 
         save_btn.setOnClickListener {
 
@@ -74,13 +53,16 @@ class AddStudents : Fragment() {
 
         }
 
-        return binding
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //kharabi aa gyi hai
-//        val model = ViewModelProvider(requireActivity()).get(AddStudentViewModel::)
+        // val model = ViewModelProvider(requireActivity()).get(AddStudentViewModel::)
     }
+
 }
+
+
