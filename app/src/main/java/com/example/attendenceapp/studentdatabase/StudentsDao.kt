@@ -2,7 +2,6 @@ package com.example.attendenceapp.studentdatabase
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface StudentsDao {
@@ -12,11 +11,11 @@ interface StudentsDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(students: Students)
 
-    @Update
-    suspend fun update(students: Students)
+//    @Update
+//    suspend fun update(students: Students)
 
-    @Delete
-    suspend fun delete(students: Students)
+//    @Delete
+//    suspend fun delete(students: Students)
 
     @Query(value = "DELETE FROM student_record")
     suspend fun deleteAllStudents()
@@ -25,7 +24,7 @@ interface StudentsDao {
     fun getAllStudentData():LiveData<List<Students>>
 
 
-    @Query("SELECT * from student_record WHERE id = :id")
-    fun getStudent(id: Int): Flow<Students>
+//    @Query("SELECT * from student_record WHERE id = :id")
+//    fun getStudent(id: Int): Flow<Students>
 
 }

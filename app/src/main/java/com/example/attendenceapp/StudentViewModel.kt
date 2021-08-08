@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
 
-    private val allStudentsList: LiveData<List<Students>> = studentDao.getAllStudentData()
+    val allStudentsList: LiveData<List<Students>> = studentDao.getAllStudentData()
 
     fun addNewItem(studentName: String, studentRollNo: String, studentAge: String,studentGender: String) {
         val newStudent = getNewStudentEntry(studentName,studentRollNo,studentAge,studentGender)

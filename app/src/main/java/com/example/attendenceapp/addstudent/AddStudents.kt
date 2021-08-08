@@ -3,7 +3,6 @@ package com.example.attendenceapp.addstudent
 import android.os.Bundle
 import android.widget.*
 import androidx.fragment.app.activityViewModels
-import com.example.attendenceapp.studentdatabase.Students
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -22,12 +21,11 @@ class AddStudents : Fragment() {
         )
     }
 
-    lateinit var students: Students
 
     private var _binding: FragmentAddStudentsBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentAddStudentsBinding.inflate(inflater, container, false)
 
