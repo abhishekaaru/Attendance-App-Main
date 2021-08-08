@@ -13,11 +13,33 @@ class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
 
     private val allStudentsList: LiveData<List<Students>> = studentDao.getAllStudentData()
 
-    fun insertStudentDataViewModel(studentData: Students) = viewModelScope.launch(Dispatchers.IO){
-        studentDao.insertStudent(studentData)
+    fun addNewItem(studentName: String, studentRollNo: String, studentAge: String,studentGender: String) {
+        val newStudent = getNewStudentEntry(studentName,studentRollNo,studentAge,studentGender)
+        insertStudentDataViewModel(newStudent)
     }
 
-    fun deleteStudentDataViewModel() = viewModelScope.launch(Dispatchers.IO){
+    fun insertStudentDataViewModel(studentData: Students) = viewModelScope.launch{
+        studentDao.insert(studentData)
+    }
+
+    private fun getNewStudentEntry(studentName: String, studentRollNo: String, studentAge: String, studentGender: String) : Students{
+        return Students(
+            studentName = studentName,
+            rollNo = studentRollNo.toInt(),
+            age = studentAge.toInt(),
+            gender = studentGender
+        )
+    }
+
+    // check if edit text are empty or not
+    fun isEntryValid(studentName: String, studentRollNo: String, studentAge: String,studentGender: String): Boolean {
+        if (studentName.isBlank() || studentRollNo.isBlank() || studentAge.isBlank() || studentGender.isBlank()) {
+            return false
+        }
+        return true
+    }
+
+    fun deleteStudentDataViewModel() = viewModelScope.launch{
         studentDao.deleteAllStudents()
     }
 
