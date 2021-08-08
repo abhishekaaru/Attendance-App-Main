@@ -44,13 +44,13 @@ class StudentFragment : Fragment() {
 
 
 
-        //Creating Recycler View instance and bind it in mainactivity xml file recycler view
+        //Creating Recycler View instance and bind it in MainActivity xml file recycler view
         binding.studentListRecyclerview.layoutManager = LinearLayoutManager(this.context)
         val adapter = StudentRecyclerViewAdapter()
         binding.studentListRecyclerview.adapter = adapter
 
         //observer when data change it send new list of data to adapter
-        studentViewModel.allStudentsList.observe(this.viewLifecycleOwner, Observer { List ->
+        studentViewModel.allStudentsList.observe(this.viewLifecycleOwner,Observer{ List ->
             List?.let {
                 adapter.updateAllStudentData(it)
             }
