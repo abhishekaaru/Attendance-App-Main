@@ -18,7 +18,7 @@ class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
         insertStudentDataViewModel(newStudent)
     }
 
-    fun insertStudentDataViewModel(studentData: Students) = viewModelScope.launch{
+    private fun insertStudentDataViewModel(studentData: Students) = viewModelScope.launch{
         studentDao.insert(studentData)
     }
 

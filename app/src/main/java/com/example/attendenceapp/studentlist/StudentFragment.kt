@@ -42,8 +42,6 @@ class StudentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         //Creating Recycler View instance and bind it in MainActivity xml file recycler view
         binding.studentListRecyclerview.layoutManager = LinearLayoutManager(this.context)
         val adapter = StudentRecyclerViewAdapter()
