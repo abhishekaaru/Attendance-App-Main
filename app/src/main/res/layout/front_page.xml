@@ -6,15 +6,15 @@
 
 
     <TextView
-        android:layout_width="0dp"
         style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Mark Attendance Stress Free\n By Attendance App"
+        android:layout_marginBottom="10dp"
+        android:text="Mark Attendance Stress Free\nBy Attendance App"
         android:textColor="@color/MainColor"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintStart_toStartOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"

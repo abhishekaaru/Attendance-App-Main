@@ -1,40 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="5dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/studentName_onList"
+        style="@style/StudentListTextView"
+        android:layout_width="190dp"
         android:layout_height="match_parent"
-        android:background="@drawable/home_page_button">
-
-        <TextView
-            android:id="@+id/studentName_onList"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            tools:text="Student Name"
-            android:textSize="16sp"
-            android:layout_margin="10dp"/>
-
-        <TextView
-            android:id="@+id/studentRoll_onList"
-            android:layout_width="0dp"
-            android:layout_weight="1.8"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            tools:text="3"
-            android:textSize="16sp"
-            android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:fontFamily="sans-serif"
+        android:gravity="left"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Student Name" />
 
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/studentRoll_onList"
+        style="@style/StudentListTextView"
+        android:layout_width="190dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/studentName_onList"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_marginTop="@dimen/margin_between_elements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/studentName_onList" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

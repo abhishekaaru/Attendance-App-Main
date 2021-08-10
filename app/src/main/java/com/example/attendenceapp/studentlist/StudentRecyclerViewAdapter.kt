@@ -10,7 +10,7 @@ import com.example.attendenceapp.R
 import com.example.attendenceapp.studentdatabase.Students
 
 
-class StudentRecyclerViewAdapter:RecyclerView.Adapter<StudentRecyclerViewAdapter.StudentDataVH>() {
+class StudentRecyclerViewAdapter: RecyclerView.Adapter<StudentRecyclerViewAdapter.StudentDataVH>() {
 
 
     private val allStudentsData = ArrayList<Students>()
@@ -23,7 +23,8 @@ class StudentRecyclerViewAdapter:RecyclerView.Adapter<StudentRecyclerViewAdapter
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentDataVH {
-        val viewHolder = StudentDataVH(LayoutInflater.from(parent.context).inflate(R.layout.adapter_student_list,parent,false))
+        val viewHolder = StudentDataVH(LayoutInflater.from(parent.context)
+            .inflate(R.layout.adapter_student_list,parent,false))
         return viewHolder
     }
 
