@@ -6,14 +6,19 @@ import androidx.fragment.app.activityViewModels
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.attendenceapp.R
 import com.example.attendenceapp.StudentApplication
 import com.example.attendenceapp.StudentViewModel
 import com.example.attendenceapp.StudentViewModelFactory
 import com.example.attendenceapp.databinding.FragmentAddStudentsBinding
+import com.example.attendenceapp.studentdatabase.Students
 
 
 class AddStudents : Fragment() {
+
+    private val navigationArgs: AddStudentsArgs by navArgs()
+    lateinit var student: Students
 
     private val addStudentViewModel: StudentViewModel by activityViewModels{
         StudentViewModelFactory(
@@ -48,6 +53,20 @@ class AddStudents : Fragment() {
         )
     }
 
+    private fun updateItem() {
+        if (isEntryValid()) {
+            addStudentViewModel.updateStudent(
+                this.navigationArgs.studentId,
+                this.binding.studentName.text.toString(),
+                this.binding.RollNo.text.toString(),
+                this.binding.Age.text.toString(),
+                this.binding.genderLable.editText?.text.toString()
+            )
+            val action = AddStudentsDirections.actionAddStudentsToStudentFragment()
+            findNavController().navigate(action)
+        }
+    }
+
     private fun addNewStudent() {
         if (isEntryValid()) {
             addStudentViewModel.addNewItem(
@@ -62,9 +81,27 @@ class AddStudents : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.saveBtn.setOnClickListener {
-            addNewStudent()
-            findNavController().navigate(R.id.action_addStudents_to_studentFragment)
+        val id = navigationArgs.studentId
+        if (id > 0) {
+            addStudentViewModel.retrieveStudent(id).observe(this.viewLifecycleOwner) { selectedItem ->
+                student = selectedItem
+                bind(student)
+            }
+        } else {
+            binding.saveBtn.setOnClickListener {
+                addNewStudent()
+            }
+        }
+    }
+
+    private fun bind(student: Students) {
+        binding.apply {
+            studentName.setText(student.studentName, TextView.BufferType.SPANNABLE)
+            RollNo.setText(student.rollNo.toString(), TextView.BufferType.SPANNABLE)
+            Age.setText(student.age.toString(), TextView.BufferType.SPANNABLE)
+            genderLable.editText?.setText(student.gender, TextView.BufferType.SPANNABLE)
+
+            saveBtn.setOnClickListener { updateItem() }
         }
     }
 

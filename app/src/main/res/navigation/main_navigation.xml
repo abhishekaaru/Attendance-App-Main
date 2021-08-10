@@ -33,6 +33,9 @@
             android:id="@+id/action_studentFragment_to_addStudents"
             app:destination="@id/addStudents"
             app:popUpTo="@id/studentFragment" />
+        <action
+            android:id="@+id/action_studentFragment_to_studentDetail"
+            app:destination="@id/studentDetail" />
     </fragment>
     <fragment
         android:id="@+id/addStudents"
@@ -43,5 +46,23 @@
             android:id="@+id/action_addStudents_to_studentFragment"
             app:destination="@id/studentFragment"
             app:popUpTo="@id/studentFragment" />
+        <argument
+            android:name="student_id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentDetail"
+        android:name="com.example.attendenceapp.addstudent.StudentDetail"
+        android:label="fragment_student_detail"
+        tools:layout="@layout/fragment_student_detail" >
+        <action
+            android:id="@+id/action_studentDetail_to_addStudents"
+            app:destination="@id/addStudents" />
+        <argument
+            android:name="student_id"
+            app:argType="integer" />
     </fragment>
 </navigation>
