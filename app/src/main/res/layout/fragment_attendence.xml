@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".studentattendence.AttendenceFragment">
 
@@ -11,24 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-
-            <TextView
-                android:id="@+id/listText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:layout_weight="2"
-                android:text="List of All Students"
-                android:textSize="20dp" />
-
-        </LinearLayout>
 
 
         <LinearLayout
@@ -37,27 +20,28 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/Header"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="16dp"
+                android:gravity="left"
+                android:text="Student Name"
                 android:textColor="#404040"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Student Name"/>
+                android:textSize="16sp" />
 
 
             <TextView
+                style="@style/Header"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="16dp"
-                android:textColor="#404040"
-                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Roll No"/>
+                android:text="Roll No."
+                android:textColor="#404040"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -69,7 +53,9 @@
             <View
                 android:id="@+id/divider"
                 style="@style/Divider"
+                android:layout_height="4dp"
                 android:layout_marginTop="@dimen/margin_between_elements"
+                android:background="#56000000"
                 app:layout_constraintBottom_toTopOf="@id/student_list_recyclerview"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -79,11 +65,12 @@
                 android:id="@+id/student_fragment_list_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingTop="10dp"
                 android:scrollbars="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider"
-                tools:listitem="@layout/adapter_student_list"/>
+                tools:listitem="@layout/adapter_student_list" />
 
         </LinearLayout>
 
