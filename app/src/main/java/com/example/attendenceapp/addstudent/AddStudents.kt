@@ -17,14 +17,14 @@ import com.example.attendenceapp.studentdatabase.Students
 
 class AddStudents : Fragment() {
 
-    private val navigationArgs: AddStudentsArgs by navArgs()
-    lateinit var student: Students
-
     private val addStudentViewModel: StudentViewModel by activityViewModels{
         StudentViewModelFactory(
             (activity?.application as StudentApplication).database.studentDao()
         )
     }
+
+    private val navigationArgs: StudentDetailArgs by navArgs()
+    lateinit var student: Students
 
 
     private var _binding: FragmentAddStudentsBinding? = null
@@ -53,6 +53,17 @@ class AddStudents : Fragment() {
         )
     }
 
+    private fun bind(student: Students) {
+        binding.apply {
+            studentName.setText(student.studentName, TextView.BufferType.SPANNABLE)
+            RollNo.setText(student.rollNo.toString(), TextView.BufferType.SPANNABLE)
+            Age.setText(student.age.toString(), TextView.BufferType.SPANNABLE)
+            genderLable.editText?.setText(student.gender, TextView.BufferType.SPANNABLE)
+
+            saveBtn.setOnClickListener { updateItem() }
+        }
+    }
+
     private fun updateItem() {
         if (isEntryValid()) {
             addStudentViewModel.updateStudent(
@@ -66,6 +77,7 @@ class AddStudents : Fragment() {
             findNavController().navigate(action)
         }
     }
+
 
     private fun addNewStudent() {
         if (isEntryValid()) {
@@ -87,23 +99,16 @@ class AddStudents : Fragment() {
                 student = selectedItem
                 bind(student)
             }
-        } else {
+        }
+
+        else {
             binding.saveBtn.setOnClickListener {
                 addNewStudent()
+                findNavController().navigate(R.id.action_addStudents_to_studentFragment)
             }
         }
     }
 
-    private fun bind(student: Students) {
-        binding.apply {
-            studentName.setText(student.studentName, TextView.BufferType.SPANNABLE)
-            RollNo.setText(student.rollNo.toString(), TextView.BufferType.SPANNABLE)
-            Age.setText(student.age.toString(), TextView.BufferType.SPANNABLE)
-            genderLable.editText?.setText(student.gender, TextView.BufferType.SPANNABLE)
-
-            saveBtn.setOnClickListener { updateItem() }
-        }
-    }
 
 }
 

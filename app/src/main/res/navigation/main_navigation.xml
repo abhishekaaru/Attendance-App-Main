@@ -31,38 +31,46 @@
         tools:layout="@layout/fragment_student" >
         <action
             android:id="@+id/action_studentFragment_to_addStudents"
-            app:destination="@id/addStudents"
-            app:popUpTo="@id/studentFragment" />
+            app:destination="@id/addStudents" >
+            <argument
+                android:name="student_id"
+                android:defaultValue="-1" />
+        </action>
         <action
             android:id="@+id/action_studentFragment_to_studentDetail"
             app:destination="@id/studentDetail" />
     </fragment>
-    <fragment
-        android:id="@+id/addStudents"
-        android:name="com.example.attendenceapp.addstudent.AddStudents"
-        android:label="Add New Student"
-        tools:layout="@layout/fragment_add_students" >
-        <action
-            android:id="@+id/action_addStudents_to_studentFragment"
-            app:destination="@id/studentFragment"
-            app:popUpTo="@id/studentFragment" />
-        <argument
-            android:name="student_id"
-            app:argType="integer" />
-        <argument
-            android:name="title"
-            app:argType="string" />
-    </fragment>
+
     <fragment
         android:id="@+id/studentDetail"
         android:name="com.example.attendenceapp.addstudent.StudentDetail"
         android:label="fragment_student_detail"
         tools:layout="@layout/fragment_student_detail" >
-        <action
-            android:id="@+id/action_studentDetail_to_addStudents"
-            app:destination="@id/addStudents" />
+
         <argument
             android:name="student_id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_studentDetail_to_addStudents"
+            app:destination="@id/addStudents" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addStudents"
+        android:name="com.example.attendenceapp.addstudent.AddStudents"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_students" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_addStudents_to_studentFragment"
+            app:destination="@id/studentFragment"
+            app:popUpTo="@id/studentFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="student_id"
+            app:argType="integer" />
+
     </fragment>
 </navigation>

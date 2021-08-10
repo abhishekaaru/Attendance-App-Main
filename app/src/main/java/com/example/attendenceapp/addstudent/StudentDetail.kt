@@ -68,7 +68,7 @@ class StudentDetail : Fragment() {
     }
 
     private fun editStudent(){
-        val action = StudentDetailDirections.actionStudentDetailToAddStudents(student.id,"Edit Student")
+        val action = StudentDetailDirections.actionStudentDetailToAddStudents("Edit Student", student.id)
         this.findNavController().navigate(action)
     }
 
