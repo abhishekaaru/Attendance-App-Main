@@ -5,4 +5,7 @@
     <string name="delete_question">Are you sure you want to delete?</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="productivity_calender">Productivity calender</string>
+    <string name="add_student">Add Student</string>
+    <string name="attendence">attendence</string>
 </resources>
