@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.attendenceapp.StudentApplication
 import com.example.attendenceapp.StudentViewModel
@@ -46,6 +47,13 @@ class AttendenceFragment : Fragment() {
                 adapter.updateAllStudentData(it)
             }
         })
+
+        //swipe left and right
+        val itemTouchSwipeRight = ItemTouchHelper(SwipeClassRight(adapter))
+        itemTouchSwipeRight.attachToRecyclerView(binding.studentFragmentListRecyclerview)
+
+        val itemTouchSwipeLeft = ItemTouchHelper(SwipeClassLeft(adapter))
+        itemTouchSwipeLeft.attachToRecyclerView(binding.studentFragmentListRecyclerview)
 
     }
 }

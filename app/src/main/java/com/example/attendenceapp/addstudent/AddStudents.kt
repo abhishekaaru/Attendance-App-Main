@@ -71,7 +71,7 @@ class AddStudents : Fragment() {
                 this.binding.studentName.text.toString(),
                 this.binding.RollNo.text.toString(),
                 this.binding.Age.text.toString(),
-                this.binding.genderLable.editText?.text.toString()
+                this.binding.genderLable.editText?.text.toString(),
             )
             val action = AddStudentsDirections.actionAddStudentsToStudentFragment()
             findNavController().navigate(action)
@@ -85,7 +85,8 @@ class AddStudents : Fragment() {
                 binding.studentName.text.toString(),
                 binding.RollNo.text.toString(),
                 binding.Age.text.toString(),
-                binding.genderLable.editText?.text.toString()
+                binding.genderLable.editText?.text.toString(),
+                0.toString()
             )
         }
     }

@@ -87,17 +87,48 @@
         app:layout_constraintTop_toBottomOf="@+id/age_input_detail"
         tools:text="Male" />
 
+    <TextView
+        style="@style/TextView"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Total Present :"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/Delete_detail"
+        app:layout_constraintEnd_toStartOf="@+id/attendence_details"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toStartOf="@+id/Delete_detail"
+        app:layout_constraintTop_toBottomOf="@+id/gender_input_detail"
+        app:layout_constraintVertical_bias="0.529" />
+
+
+    <TextView
+        android:id="@+id/attendence_details"
+        style="@style/TextView"
+        android:layout_width="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/Delete_detail"
+        app:layout_constraintEnd_toEndOf="@+id/Delete_detail"
+        app:layout_constraintHorizontal_bias="0.374"
+        app:layout_constraintStart_toStartOf="@+id/Delete_detail"
+        app:layout_constraintTop_toBottomOf="@+id/gender_input_detail"
+        app:layout_constraintVertical_bias="0.529" />
+
     <Button
         android:id="@+id/Delete_detail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin"
+        android:layout_marginTop="60dp"
         android:text="Delete"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gender_input_detail" />
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_student"

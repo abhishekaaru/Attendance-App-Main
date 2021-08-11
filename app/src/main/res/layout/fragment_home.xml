@@ -7,29 +7,50 @@
     tools:context=".HomeFragment">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:layout_margin="20dp"
         android:gravity="top|center"
-        android:layout_margin="20dp">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp">
 
         <Button
             android:id="@+id/attendence_button"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:textColor="@color/white"
+            android:layout_marginEnd="10dp"
             android:text="attendence"
-            android:layout_marginEnd="10dp"/>
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/add_student_button"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
             android:text="Add Student"
-            android:layout_marginStart="10dp"/>
+            android:textColor="@color/white" />
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="199dp" />
+
+    <Button
+        android:id="@+id/calender_button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="30dp"
+        android:text="Calender\ndekhna hai"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

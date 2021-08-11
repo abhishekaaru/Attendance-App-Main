@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.attendenceapp.R
 import com.example.attendenceapp.studentdatabase.Students
+import com.google.android.material.snackbar.Snackbar
 
 class StudentAttendenceRecyclerView:RecyclerView.Adapter<StudentAttendenceRecyclerView.StudentAttendenceVH>(){
 
@@ -33,6 +34,19 @@ class StudentAttendenceRecyclerView:RecyclerView.Adapter<StudentAttendenceRecycl
 
     override fun getItemCount(): Int {
         return allStudentsData.size
+    }
+
+    //swipe function
+    fun updateAttendenceSwipeRight(position:Int,view:View){
+        val positionInList = allStudentsData[position]
+        positionInList.attendance += 1
+        val mySnackbar = Snackbar.make(view, "Present Marked", Snackbar.LENGTH_SHORT)
+        mySnackbar.show()
+    }
+
+    fun updateAttendenceSwipeLeft(position: Int,view: View){
+        val mySnackbar = Snackbar.make(view, "Absent Marked", Snackbar.LENGTH_SHORT)
+        mySnackbar.show()
     }
 
     @SuppressLint("NotifyDataSetChanged")

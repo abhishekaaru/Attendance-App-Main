@@ -22,7 +22,7 @@ interface StudentsDao {
     @Query(value = "DELETE FROM student_record")
     suspend fun deleteAllStudents()
 
-    @Query(value = "SELECT * FROM student_record ORDER BY StudentName")
+    @Query(value = "SELECT * FROM student_record ORDER BY RollNo")
     fun getAllStudentData():LiveData<List<Students1>>
 
     @Query("SELECT * FROM student_record WHERE id = :id")

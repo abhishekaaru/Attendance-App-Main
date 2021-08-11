@@ -18,6 +18,9 @@
             android:id="@+id/action_homeFragment_to_studentFragment"
             app:destination="@id/studentFragment"
             app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calenderFragment"
+            app:destination="@id/calenderFragment" />
     </fragment>
     <fragment
         android:id="@+id/attendenceFragment"
@@ -73,4 +76,9 @@
             app:argType="integer" />
 
     </fragment>
+    <fragment
+        android:id="@+id/calenderFragment"
+        android:name="com.example.attendenceapp.CalenderFragment"
+        android:label="fragment_calender"
+        tools:layout="@layout/fragment_calender" />
 </navigation>

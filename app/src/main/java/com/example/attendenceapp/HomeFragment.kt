@@ -36,6 +36,11 @@ class HomeFragment : Fragment() {
         binding.addStudentButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_studentFragment)
         }
+
+        binding.calenderButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_calenderFragment)
+        }
+
     }
 
 

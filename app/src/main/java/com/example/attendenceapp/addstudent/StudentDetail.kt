@@ -32,7 +32,7 @@ class StudentDetail : Fragment() {
     private val binding get() = _binding!!
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentStudentDetailBinding.inflate(inflater, container, false)
 
@@ -56,6 +56,7 @@ class StudentDetail : Fragment() {
             rollInputDetail.text = student.rollNo.toString()
             ageInputDetail.text = student.age.toString()
             genderInputDetail.text = student.gender
+            attendenceDetails.text = student.attendance.toString()//added by dps
 
             DeleteDetail.setOnClickListener { showConfirmationDialog() }
             editStudent.setOnClickListener { editStudent() }

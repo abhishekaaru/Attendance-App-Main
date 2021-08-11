@@ -3,15 +3,14 @@ package com.example.attendenceapp
 import androidx.lifecycle.*
 import com.example.attendenceapp.studentdatabase.Students
 import com.example.attendenceapp.studentdatabase.StudentsDao
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
 
     val allStudentsList: LiveData<List<Students>> = studentDao.getAllStudentData()
-
-    fun addNewItem(studentName: String, studentRollNo: String, studentAge: String,studentGender: String) {
-        val newStudent = getNewStudentEntry(studentName,studentRollNo,studentAge,studentGender)
+                                                                                                        //added by dps
+    fun addNewItem(studentName: String, studentRollNo: String, studentAge: String,studentGender: String,studentAttendance:String) {
+        val newStudent = getNewStudentEntry(studentName,studentRollNo,studentAge,studentGender,studentAttendance)//added by dps
         insertStudentDataViewModel(newStudent)
     }
 
@@ -19,12 +18,19 @@ class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
         studentDao.insert(studentData)
     }
 
-    private fun getNewStudentEntry(studentName: String, studentRollNo: String, studentAge: String, studentGender: String) : Students{
+    private fun getNewStudentEntry(
+        studentName: String,
+        studentRollNo: String,
+        studentAge: String,
+        studentGender: String,
+        studentAttendance: String //added by dps
+    ) : Students{
         return Students(
             studentName = studentName,
             rollNo = studentRollNo.toInt(),
             age = studentAge.toInt(),
-            gender = studentGender
+            gender = studentGender,
+            attendance = studentAttendance.toInt()//added by dps
         )
     }
 
@@ -56,7 +62,7 @@ class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
         studentName: String,
         studentRollNo: String,
         studentAge: String,
-        studentGender: String
+        studentGender: String,
     ) {
         val updatedStudent = getUpdatedStudentEntry(studentId, studentName, studentRollNo, studentAge, studentGender)
 
@@ -75,7 +81,7 @@ class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
         studentName: String,
         studentRollNo: String,
         studentAge: String,
-        studentGender: String
+        studentGender: String,
     ): Students {
 
         return Students(
@@ -83,7 +89,7 @@ class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
             studentName = studentName,
             rollNo = studentRollNo.toInt(),
             age = studentAge.toInt(),
-            gender = studentGender
+            gender = studentGender,
         )
     }
 
