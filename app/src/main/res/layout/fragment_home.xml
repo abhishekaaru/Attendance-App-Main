@@ -45,7 +45,6 @@
         android:id="@+id/calender_button"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginLeft="30dp"
         android:text="Calender\ndekhna hai"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
