@@ -39,7 +39,7 @@ class StudentAttendenceRecyclerView:RecyclerView.Adapter<StudentAttendenceRecycl
     //swipe function
     fun updateAttendenceSwipeRight(position:Int,view:View){
         val positionInList = allStudentsData[position]
-        positionInList.attendance += 1
+        positionInList.attendance =  positionInList.attendance + 1
         val mySnackbar = Snackbar.make(view, "Present Marked", Snackbar.LENGTH_SHORT)
         mySnackbar.show()
     }
