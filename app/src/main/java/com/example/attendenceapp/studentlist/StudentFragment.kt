@@ -44,7 +44,11 @@ class StudentFragment : Fragment() {
 
         //Creating Recycler View instance and bind it in MainActivity xml file recycler view
         binding.studentListRecyclerview.layoutManager = LinearLayoutManager(this.context)
-        val adapter = StudentRecyclerViewAdapter()
+        val adapter = StudentRecyclerViewAdapter {
+            val action = StudentFragmentDirections.actionStudentFragmentToStudentDetail(it.id)
+            findNavController().navigate(action)
+        }
+
         binding.studentListRecyclerview.adapter = adapter
 
         //observer when data change it send new list of data to adapter

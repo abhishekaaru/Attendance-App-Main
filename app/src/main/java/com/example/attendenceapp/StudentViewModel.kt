@@ -1,9 +1,6 @@
 package com.example.attendenceapp
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.attendenceapp.studentdatabase.Students
 import com.example.attendenceapp.studentdatabase.StudentsDao
 import kotlinx.coroutines.Dispatchers
@@ -42,6 +39,55 @@ class StudentViewModel(private val studentDao: StudentsDao) : ViewModel() {
     fun deleteStudentDataViewModel() = viewModelScope.launch{
         studentDao.deleteAllStudents()
     }
+
+    fun retrieveStudent(id: Int): LiveData<Students> {
+        val getStudent: LiveData<Students> = studentDao.getStudent(id)
+        return getStudent
+    }
+
+    fun deleteSingleStudent(student: Students){
+        viewModelScope.launch {
+            studentDao.delete(student)
+        }
+    }
+
+    fun updateStudent(
+        studentId: Int,
+        studentName: String,
+        studentRollNo: String,
+        studentAge: String,
+        studentGender: String
+    ) {
+        val updatedStudent = getUpdatedStudentEntry(studentId, studentName, studentRollNo, studentAge, studentGender)
+
+        updateStudent(updatedStudent)
+    }
+
+    private fun updateStudent(student: Students) {
+        viewModelScope.launch {
+            studentDao.update(student)
+        }
+    }
+
+
+    private fun getUpdatedStudentEntry(
+        studentId: Int,
+        studentName: String,
+        studentRollNo: String,
+        studentAge: String,
+        studentGender: String
+    ): Students {
+
+        return Students(
+            id = studentId,
+            studentName = studentName,
+            rollNo = studentRollNo.toInt(),
+            age = studentAge.toInt(),
+            gender = studentGender
+        )
+    }
+
+
 
 }
 

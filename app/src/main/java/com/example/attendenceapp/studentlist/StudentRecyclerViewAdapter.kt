@@ -8,9 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.attendenceapp.R
 import com.example.attendenceapp.studentdatabase.Students
+import com.example.attendenceapp.studentdatabase.StudentsDao
 
 
-class StudentRecyclerViewAdapter: RecyclerView.Adapter<StudentRecyclerViewAdapter.StudentDataVH>() {
+class StudentRecyclerViewAdapter(private val onItemClicked: (Students) -> Unit): RecyclerView.Adapter<StudentRecyclerViewAdapter.StudentDataVH>() {
 
 
     private val allStudentsData = ArrayList<Students>()
@@ -33,6 +34,9 @@ class StudentRecyclerViewAdapter: RecyclerView.Adapter<StudentRecyclerViewAdapte
         val positionOnScreen = allStudentsData[position]
         holder.studentName.text = positionOnScreen.studentName
         holder.studentRollNo.text = positionOnScreen.rollNo.toString()
+        holder.itemView.setOnClickListener {
+            onItemClicked(positionOnScreen)
+        }
     }
 
     override fun getItemCount(): Int {
